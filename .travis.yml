@@ -1,12 +1,17 @@
 language: java
 sudo: false
 jdk:
-  - openjdk8
+- openjdk8
 install: true
 script: mvn clean install
-#script:
-#  - echo -e '<?xml version="1.0" encoding="UTF-8"?><settings xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.1.0 http://
-
 cache:
   directories:
-    - $HOME/.m2
+  - "$HOME/.m2"
+deploy:
+  on:
+    branch: master
+  provider: bintray
+  skip_cleanup: true
+  user: ultiweb
+  key:
+    secure: TcfjQzlQRrff0j1vTGZUQuLXMsixOhKSukOf6i2GcKmZd4PawHcsknotz39jHlcGzzjfcgn5UsIRoj7/O7fbskcnr+XTVn4M5Ff0LqLsYHWeTFfGcT8OPFERh0eJXH1VAwVuD1V1QHIH25wbXTPlf42EPPOxKFrkd+jtRovedRrKmh/YKHbyHbjY/UhEAZD5VxNIRaO/WErJN/SKK4JuCt6SulU5Ed/oCXM8a2PYm79q+vKcE1zmnW4x+oJfV8cImFu1v4Si6dkuWjUaMzcBtVTHFBoQ/ZLXLC6rM/MRzeX5rCxQ7xCMLXPwIs4QEZZH96WSOM49VuDVCO7wJn8cFA3Sqfrd0LmFFkjNMhGHTxwnbphA0jptdAVgm78cuSKyPD9qpLmbL/tn0sgyeYKZV6lHm5WAnBZy1WGPJcV1p/MHsa6utNFaK+lDsD8ISUDxSCdd1ApTG/rS1to18OXZtjpNwCaulUuvokowNWmdo0nQSq8JdpF9hm+v69fXYCmrhiO2HldGyni/9A4SaJ+CVSzqWL8CvZXWamH384G+JWCVX0WBL48GCWyrYle+U2DhTlnR8x64j3SN1U4yJ/PYkYA3ONJtudUVkAed38RBNhkKgIXdIbp6fkBkeesDj6c9YWOIiqTz85Mqv1vul/nSLV/0kDTt7UG4g8KjBsDjb+E=
