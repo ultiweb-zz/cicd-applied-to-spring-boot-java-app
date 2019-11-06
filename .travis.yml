@@ -3,10 +3,18 @@ sudo: false
 jdk:
 - openjdk8
 install: true
-script: mvn clean install
+script:
+  - cat $HOME/.m2/settings.xml
+  - mvn deploy
+
 cache:
   directories:
   - "$HOME/.m2"
+services: docker
+
+before_install:
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password stdin
+  - docker pull openjdk:8-jdk-alpine
 deploy:
   on:
     branch: master
