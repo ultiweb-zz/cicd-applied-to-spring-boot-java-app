@@ -2,6 +2,11 @@ language: java
 sudo: false
 jdk:
   - openjdk8
-
+install: true
+script: ./mvnw clean install
 #script:
 #  - echo -e '<?xml version="1.0" encoding="UTF-8"?><settings xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.1.0 http://
+
+cache:
+  directories:
+    - $HOME/.m2
